@@ -21,7 +21,26 @@
 // string result = (firstNum==fifthNum && secondNum==forthNum)?("YES. Its palindrome"):("NO. It isnt palindrome!");
 // Console.WriteLine(result);
 
+Console.Write("Please, enter your 5-digit number:");
+int num = int.Parse(Console.ReadLine());
+int[] array = new int[5];
+int j = 10000;
+for (int i = 0; i < 5; i++)
+{
+    array[i] = num / j;
+    num = num%j;
+    j /= 10;
+}
+Console.WriteLine( $"{array[0]}, {array[1]}, {array[2]}, {array[3]}, {array[4]}");
 
+if (array[0] == array[4] && array[1] == array[3])
+{
+    Console.WriteLine("YES, its palindrome!");
+}
+else
+{
+    Console.WriteLine("NO, it isnt palindrome");
+}
 
 /*Задача 21
 
