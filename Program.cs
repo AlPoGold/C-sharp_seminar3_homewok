@@ -62,7 +62,39 @@ A (7,-5, 0); B (1,-1,9) -> 11.53*/
 // int z2 = int.Parse(splitString2[2]);
 
 // double result = Math.Round(Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2)), 2);
-// Console.WriteLine(result);
+// Console.WriteLine($"The distance is {result}");
+
+// Second version:
+
+double[] parseCoordinates(string stringAnswer)
+{
+    double[] coordinates = new double[3]; 
+    string[] splitString = stringAnswer.Split(' ');
+    for(int i = 0; i < splitString.Length; i++)
+    {
+        coordinates[i] = double.Parse(splitString[i]);  
+    }
+
+    return coordinates;
+
+}
+
+
+Console.Write("Please, enter first triplet numbers with space between:");
+string answerUser1 = Console.ReadLine();
+
+Console.Write("Please, enter second triplet numbers with space between:");
+string answerUser2 = Console.ReadLine();
+
+
+double result = 0;
+
+for (int i = 0; i < 3; i++)
+{
+    double part = Math.Pow(parseCoordinates(answerUser1)[i] - parseCoordinates(answerUser2)[i], 2);
+    result += part;
+}
+Console.WriteLine($"The distance is {Math.Round(Math.Sqrt(result), 2)}");
 
 /*Задача 23
 
